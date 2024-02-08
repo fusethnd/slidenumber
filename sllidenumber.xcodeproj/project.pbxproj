@@ -14,7 +14,8 @@
 		A9DC5E112B6EB8C8008B2E10 /* sllidenumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC5E102B6EB8C8008B2E10 /* sllidenumberTests.swift */; };
 		A9DC5E1B2B6EB8C8008B2E10 /* sllidenumberUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC5E1A2B6EB8C8008B2E10 /* sllidenumberUITests.swift */; };
 		A9DC5E1D2B6EB8C8008B2E10 /* sllidenumberUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC5E1C2B6EB8C8008B2E10 /* sllidenumberUITestsLaunchTests.swift */; };
-		A9DC5E2A2B6ECE8B008B2E10 /* NumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC5E292B6ECE8B008B2E10 /* NumberViewModel.swift */; };
+		A9DC5E2A2B6ECE8B008B2E10 /* PuzzleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC5E292B6ECE8B008B2E10 /* PuzzleViewModel.swift */; };
+		A9DC5ECE2B74C1D5008B2E10 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC5ECD2B74C1D5008B2E10 /* GameModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +47,8 @@
 		A9DC5E162B6EB8C8008B2E10 /* sllidenumberUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sllidenumberUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9DC5E1A2B6EB8C8008B2E10 /* sllidenumberUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sllidenumberUITests.swift; sourceTree = "<group>"; };
 		A9DC5E1C2B6EB8C8008B2E10 /* sllidenumberUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sllidenumberUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		A9DC5E292B6ECE8B008B2E10 /* NumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewModel.swift; sourceTree = "<group>"; };
+		A9DC5E292B6ECE8B008B2E10 /* PuzzleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewModel.swift; sourceTree = "<group>"; };
+		A9DC5ECD2B74C1D5008B2E10 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +99,9 @@
 		A9DC5DFD2B6EB8C7008B2E10 /* sllidenumber */ = {
 			isa = PBXGroup;
 			children = (
+				A9DC5ECC2B74BE5F008B2E10 /* Models */,
 				A9DC5DFE2B6EB8C7008B2E10 /* sllidenumberApp.swift */,
 				A9DC5E002B6EB8C7008B2E10 /* ContentView.swift */,
-				A9DC5E292B6ECE8B008B2E10 /* NumberViewModel.swift */,
 				A9DC5E022B6EB8C8008B2E10 /* Assets.xcassets */,
 				A9DC5E042B6EB8C8008B2E10 /* sllidenumber.entitlements */,
 				A9DC5E052B6EB8C8008B2E10 /* Preview Content */,
@@ -130,6 +132,15 @@
 				A9DC5E1C2B6EB8C8008B2E10 /* sllidenumberUITestsLaunchTests.swift */,
 			);
 			path = sllidenumberUITests;
+			sourceTree = "<group>";
+		};
+		A9DC5ECC2B74BE5F008B2E10 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A9DC5E292B6ECE8B008B2E10 /* PuzzleViewModel.swift */,
+				A9DC5ECD2B74C1D5008B2E10 /* GameModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,7 +273,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9DC5E2A2B6ECE8B008B2E10 /* NumberViewModel.swift in Sources */,
+				A9DC5E2A2B6ECE8B008B2E10 /* PuzzleViewModel.swift in Sources */,
+				A9DC5ECE2B74C1D5008B2E10 /* GameModel.swift in Sources */,
 				A9DC5E012B6EB8C7008B2E10 /* ContentView.swift in Sources */,
 				A9DC5DFF2B6EB8C7008B2E10 /* sllidenumberApp.swift in Sources */,
 			);

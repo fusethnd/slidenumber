@@ -10,63 +10,36 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var viewModel = NumberViewModel()
-    // @State var showResult = false
-    let numbers = 0...15
+    @ObservedObject var viewModel = PuzzleViewModel()
     
     var body: some View {
         VStack { // V - Colummn, H - Row
             LazyVGrid(columns: [GridItem(), GridItem(), GridItem(), GridItem()]) {
                 ForEach(viewModel.puzzle) { tile in
-                    Numberview(tile)
-                        .aspectRatio(2/3, contentMode: .fit)
-                        .onTapGesture { // tap on screen
-                            viewModel.choose(tile)
-                        }
-                }
+                        Tileview(tile)
+                        .aspectRatio(1.0, contentMode: .fit)
+                            .onTapGesture { // tap on screen
+                                viewModel.shift(tile)
+                            }
+                    }
             }
-//                ForEach(viewModel.matrix.indices) { row in
-//                    ForEach(viewModel.matrix) { col in
-//                        let number = col.number // viewModel.matrix[row][col]
-//                        Numberview(number: number, onTap: { tappedNum in
-//                            self.viewModel.choose(tappedNum)
-//                        })
-//                        .aspectRatio(1.0, contentMode: .fit)
-//                        
-//                    }
-//                }
-            
-                
-//                ForEach(viewModel.matrix) { tile in
-//                    Numberview(number: tile, onTap: { tappedNum in
-//                        self.viewModel.choose(tile: tappedNum)
-//                    })
-//                }
-                
-                
-                // .aspectRatio(2/3, contentMode: .fit)
-//                .onTapGesture { // tap on screen
-//                        onTap(tile)
-//                }
-            
-            
-            //                ForEach(numbers) { number in viewModel.numbers
-            //                            .aspectRatio(2/3, contentMode: .fit)
-            //                            .onTapGesture { // tap on screen
-            //                                viewModel.choose(number)
-            //                            }
-            //                    }
             .foregroundColor(.purple)
             Spacer()
         }
+        .padding()
+        
+        Button("Start New Game") {
+            // Handle OK button action
+            viewModel.startNewGame()
+        }.padding()
     }
 }
 
-struct Numberview: View {
-    var number: NumberViewModel.Tile
+struct Tileview: View {
+    var tile: GameModel<String>.Tile
 
-    init(_ num: NumberViewModel.Tile) {
-        self.number = num
+    init(_ tile: GameModel<String>.Tile) {
+        self.tile = tile
     }
     
     var body: some View {
@@ -76,14 +49,12 @@ struct Numberview: View {
             Group {
                 base.foregroundColor(.white)
                 base.strokeBorder(lineWidth: 2)
-                Text("\(number.number)")
+                Text(tile.number)
             }
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+#Preview {
+    ContentView()
 }
