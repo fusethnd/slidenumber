@@ -8,7 +8,7 @@
 import Foundation
 
 // class NumberViewModel {
-class NumberViewModel : ObservableObject {
+class Game : ObservableObject {
 //    let nrows = 4
 //    let ncols = 4
 //    var win = false
@@ -20,10 +20,11 @@ class NumberViewModel : ObservableObject {
     init() {
         var tileArray: [Tile] = []
         for i in 1...15 {
-            tileArray.append(Tile(id: i, number: i))
+            tileArray.append(Tile(id: i, number: String(i)))
         }
         
-        tileArray.append(Tile(id: 0, number: 0))
+        var spaceTile = Tile(id: 0, number: "0")
+        tileArray.append(spaceTile)
         
         puzzle = tileArray
         puzzle.shuffle()
@@ -58,11 +59,12 @@ class NumberViewModel : ObservableObject {
     
     func findNumberPosition(_ num: Tile) -> Int {
         // find number position
-        for index in 0..<16 {
-            if (puzzle[index].number == num.number) {
-                return index // array to store position
-            }
-        }
+        return puzzle.firstIndex(of: num.id)
+//        for index in 0..<16 {
+//            if (puzzle[index].number == num.number) {
+//                return index // array to store position
+//            }
+//        }
 //        for row in 0..<nrows {
 //            for col in 0..<ncols {
 //                if (matrix[row][col].number == num) {
@@ -71,8 +73,8 @@ class NumberViewModel : ObservableObject {
 //            }
 //        }
 //        return [-1, -1]
-        return -1
-    }
+//        return -1
+
     
     func findElement(_ position: Int) -> Tile {
         return puzzle[position]
@@ -122,7 +124,7 @@ class NumberViewModel : ObservableObject {
 //        }
         
         for pos in aroundNumber {
-            if (puzzle[pos].number == 0) { //space founded
+            if (puzzle[pos].id == 0) { //space founded
                 // swap
                 puzzle.swapAt(pos, tilePos)
             }
@@ -140,7 +142,7 @@ class NumberViewModel : ObservableObject {
         let id: Int
 //        let row: Int
 //        let col: Int
-        var number: Int
+        var number: String
     }
 
 }
