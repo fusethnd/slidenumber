@@ -64,7 +64,6 @@ struct ContentView: View {
 
 struct Numberview: View {
     var number: NumberViewModel.Tile
-//    var onTap: (NumberViewModel.Tile) -> Void
 
     init(_ num: NumberViewModel.Tile) {
         self.number = num
