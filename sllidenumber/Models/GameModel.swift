@@ -30,13 +30,13 @@ struct GameModel<TileContentType> {
         let shiftedIndex = index(of: tile)
         var aroundTileIndex: [Int] = []
 
-        if (shiftedIndex-1 > 0) {
+        if (shiftedIndex-1 >= 0) {
             aroundTileIndex.append(shiftedIndex-1)
         }
         if (shiftedIndex+1 < 16) {
             aroundTileIndex.append(shiftedIndex+1)
         }
-        if (shiftedIndex-4 > 0) {
+        if (shiftedIndex-4 >= 0) {
             aroundTileIndex.append(shiftedIndex-4)
         }
         if (shiftedIndex+4 < 16) {
