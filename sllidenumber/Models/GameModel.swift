@@ -11,17 +11,6 @@ struct GameModel<TileContentType> {
     private(set) var puzzle: Array<Tile>
     let spaceTile: Tile
     
-//    init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContentType) {
-    // defind numver of pair
-//        cards = []
-//        for pairIndex in 0..<numberOfPairsOfCards {
-//            let content = cardContentFactory(pairIndex)
-//            cards.append(Card(content: content))
-//            cards.append(Card(content: content))
-//        }
-//        shuffle()
-//    }
-    
     init(numberOfSlide: Int, tileNumberFactory: (Int) -> TileContentType) {
         var tileArray: [Tile] = []
         for i in 0...15 {
@@ -29,9 +18,8 @@ struct GameModel<TileContentType> {
             tileArray.append(Tile(number: number))
         }
         
-//        let spaceTile = Tile(number: 0)
-//        tileArray.append(spaceTile)
         spaceTile = tileArray[0]
+        
         
         puzzle = tileArray
         shuffle()
@@ -40,13 +28,7 @@ struct GameModel<TileContentType> {
     mutating func shift(_ tile: Tile) { // _ mean dont have to write name when use this function
         let shiftedIndex = index(of: tile)
         var aroundTileIndex: [Int] = []
-        // let aroundNumber: [Int] = [tilePos-1,tilePos+1,tilePos-4,tilePos+4]
-        
-        // check that what tiles is in array
-        // left not < 0,
-        // right not > 15
-        // top not < 0
-        // btm not > 15
+
         if (shiftedIndex-1 > 0) {
             aroundTileIndex.append(shiftedIndex-1)
         }
