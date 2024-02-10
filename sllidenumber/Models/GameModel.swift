@@ -9,6 +9,7 @@ import Foundation
 
 struct GameModel<TileContentType> {
     private(set) var puzzle: Array<Tile>
+    let standard: Array<Tile>
     let spaceTile: Tile
     
     init(numberOfSlide: Int, tileNumberFactory: (Int) -> TileContentType) {
@@ -20,7 +21,7 @@ struct GameModel<TileContentType> {
         
         spaceTile = tileArray[0]
         
-        
+        standard = tileArray
         puzzle = tileArray
         shuffle()
     }
@@ -50,6 +51,15 @@ struct GameModel<TileContentType> {
                 }
             }
         }
+    }
+    
+    private func isGameWin(of puzzleNow: Array<Tile>) -> Bool {
+        for index in puzzleNow.indices {
+            if (puzzleNow[index].id != standard[index].id) {
+                return false
+            }
+        }
+        return true
     }
     
     private func swapable(index1: Int, index2: Int) -> Bool {
