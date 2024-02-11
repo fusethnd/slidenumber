@@ -11,6 +11,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var viewModel = PuzzleViewModel()
+    @State private var isGameFinished = false
     
     var body: some View {
         VStack { // V - Colummn, H - Row
@@ -20,6 +21,7 @@ struct ContentView: View {
                         .aspectRatio(1.0, contentMode: .fit)
                             .onTapGesture { // tap on screen
                                 viewModel.shift(tile)
+                                checkGameWin()
                             }
                     }
             }
@@ -27,11 +29,31 @@ struct ContentView: View {
             Spacer()
         }
         .padding()
+        .alert(isPresented: $isGameFinished) {
+            Alert(
+                title: Text("You won!"),
+                message: Text("Congratulations! You've solved the puzzle."),
+                primaryButton: .default(Text("Start New Game")) {
+                    viewModel.startNewGame()
+                },
+                secondaryButton: .cancel()
+            )
+        }
+        .onAppear {
+            viewModel.startNewGame()
+        }
+        // Text(viewModel.isGameWin())
         
         Button("Start New Game") {
             // Handle OK button action
             viewModel.startNewGame()
         }.padding()
+    }
+    
+    private func checkGameWin() {
+        if viewModel.isGameWin() {
+            isGameFinished = true
+        }
     }
 }
 

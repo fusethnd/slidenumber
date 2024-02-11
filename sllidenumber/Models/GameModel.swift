@@ -11,6 +11,7 @@ struct GameModel<TileContentType> {
     private(set) var puzzle: Array<Tile>
     let standard: Array<Tile>
     let spaceTile: Tile
+    var isWin = false
     
     init(numberOfSlide: Int, tileNumberFactory: (Int) -> TileContentType) {
         var tileArray: [Tile] = []
@@ -19,7 +20,7 @@ struct GameModel<TileContentType> {
             tileArray.append(Tile(number: number))
         }
         
-        spaceTile = tileArray[0]
+        spaceTile = tileArray[15]
         
         standard = tileArray
         puzzle = tileArray
@@ -53,7 +54,7 @@ struct GameModel<TileContentType> {
         }
     }
     
-    private func isGameWin(of puzzleNow: Array<Tile>) -> Bool {
+    private func checkWin(of puzzleNow: Array<Tile>) -> Bool {
         for index in puzzleNow.indices {
             if (puzzleNow[index].id != standard[index].id) {
                 return false
@@ -61,6 +62,15 @@ struct GameModel<TileContentType> {
         }
         return true
     }
+    
+//    private mutating func isGameWin() {
+//        if checkWin(of: puzzle) {
+//            isWin = true
+//        } else {
+//            isWin = false
+//        }
+//    }
+    
     
     private func swapable(index1: Int, index2: Int) -> Bool {
         let row1 = index1 / 4
@@ -79,6 +89,10 @@ struct GameModel<TileContentType> {
             }
         }
         return 0
+    }
+    
+    mutating func isGameWin() -> Bool {
+        return checkWin(of: puzzle)
     }
     
     mutating func shuffle() {
