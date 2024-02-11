@@ -13,6 +13,7 @@ struct GameModel<TileContentType> {
     let spaceTile: Tile
     var isWin = false
     
+    
     init(numberOfSlide: Int, tileNumberFactory: (Int) -> TileContentType) {
         var tileArray: [Tile] = []
         for i in 0...15 {
@@ -49,6 +50,7 @@ struct GameModel<TileContentType> {
                 if swapable(index1: shiftedIndex, index2: index) {
                     // swap position
                     puzzle.swapAt(shiftedIndex, index)
+                    // count += 1
                 }
             }
         }
@@ -94,6 +96,10 @@ struct GameModel<TileContentType> {
     mutating func isGameWin() -> Bool {
         return checkWin(of: puzzle)
     }
+    
+//    mutating func getCount() -> Int {
+//        return count
+//    }
     
     mutating func shuffle() {
         puzzle.shuffle()

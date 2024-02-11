@@ -12,6 +12,7 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var viewModel = PuzzleViewModel()
     @State private var isGameFinished = false
+    @State private var count = 0
     
     var body: some View {
         VStack { // V - Colummn, H - Row
@@ -21,6 +22,7 @@ struct ContentView: View {
                         .aspectRatio(1.0, contentMode: .fit)
                             .onTapGesture { // tap on screen
                                 viewModel.shift(tile)
+                                count += 1
                                 checkGameWin()
                             }
                     }
@@ -35,6 +37,7 @@ struct ContentView: View {
                 message: Text("Congratulations! You've solved the puzzle."),
                 primaryButton: .default(Text("Start New Game")) {
                     viewModel.startNewGame()
+                    count = 0
                 },
                 secondaryButton: .cancel()
             )
@@ -42,11 +45,13 @@ struct ContentView: View {
         .onAppear {
             viewModel.startNewGame()
         }
-        // Text(viewModel.isGameWin())
+        
+        Text("Count: \(count)")
         
         Button("Start New Game") {
             // Handle OK button action
             viewModel.startNewGame()
+            count = 0
         }.padding()
     }
     

@@ -39,6 +39,10 @@ class PuzzleViewModel : ObservableObject {
         return model.isGameWin()
     }
     
+//    func getCount() -> Int {
+//        return model.getCount()
+//    }
+    
     func startNewGame() {
         model.startNewGame()
     }
