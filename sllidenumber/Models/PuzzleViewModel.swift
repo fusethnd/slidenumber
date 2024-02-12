@@ -27,21 +27,9 @@ class PuzzleViewModel : ObservableObject {
         model.shuffle()
     }
     
-//    func isGameWin() -> String {
-//        if model.isGameWin() {
-//            return "Game win"
-//        } else {
-//            return "Playing"
-//        }
-//    }
-    
     func isGameWin() -> Bool {
         return model.isGameWin()
     }
-    
-//    func getCount() -> Int {
-//        return model.getCount()
-//    }
     
     func startNewGame() {
         model.startNewGame()
