@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GameModel<TileContentType> {
+struct GameModel<TileContentType: Comparable> {
     private(set) var puzzle: Array<Tile>
     let standard: Array<Tile>
     let spaceTile: Tile
@@ -50,7 +50,6 @@ struct GameModel<TileContentType> {
                 if swapable(index1: shiftedIndex, index2: index) {
                     // swap position
                     puzzle.swapAt(shiftedIndex, index)
-                    // count += 1
                 }
             }
         }
@@ -64,14 +63,6 @@ struct GameModel<TileContentType> {
         }
         return true
     }
-    
-//    private mutating func isGameWin() {
-//        if checkWin(of: puzzle) {
-//            isWin = true
-//        } else {
-//            isWin = false
-//        }
-//    }
     
     
     private func swapable(index1: Int, index2: Int) -> Bool {
@@ -97,17 +88,34 @@ struct GameModel<TileContentType> {
         return checkWin(of: puzzle)
     }
     
-//    mutating func getCount() -> Int {
-//        return count
-//    }
-    
     mutating func shuffle() {
         puzzle.shuffle()
     }
     
+    private func isSolvable() -> Bool {
+        // Count the number of inversions in the puzzle array
+        var inversionCount = 0
+        for i in 0..<puzzle.count {
+            for j in i+1..<puzzle.count {
+                if puzzle[i].id != spaceTile.id && puzzle[j].id != spaceTile.id &&
+                    puzzle[i].number < puzzle[j].number {
+                    inversionCount += 1
+                }
+            }
+        }
+
+        // Check if the puzzle is in a solvable state
+        
+        if (inversionCount % 2 == 0 && index(of: spaceTile) % 2 == 0) ||
+            (inversionCount % 2 == 1 && index(of: spaceTile) % 2 == 1) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    
     mutating func startNewGame() {
-        // correct = false
-        // count = 0
         shuffle()
     }
     

@@ -32,7 +32,7 @@ struct ContentView: View {
         }
         .padding()
         .alert(isPresented: $isGameFinished) {
-            Alert(
+             Alert(
                 title: Text("You won!"),
                 message: Text("Congratulations! You've solved the puzzle."),
                 primaryButton: .default(Text("Start New Game")) {
