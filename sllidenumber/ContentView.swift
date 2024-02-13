@@ -22,9 +22,13 @@ extension Color {
 
 struct ContentView: View {
     @ObservedObject var viewModel = PuzzleViewModel()
+    
     @State private var isGameFinished = false
     @State private var count = 0
     
+//    @State private var buttonColor: Color = Color(hex: 0x7FC8F8)
+//    @State private var shadowButtonColor: Color = Color(hex: 0x5AA9E6)
+
     var body: some View {
         ZStack {
             Color(hex: 0x2B70E4)
@@ -41,7 +45,8 @@ struct ContentView: View {
             RoundedRectangle(cornerRadius: 38)
                 .foregroundColor(Color(hex: 0xFFD034))
                 // Yellow frame
-                .frame(width: 391.3, height: 531.6)
+                .frame(width: 391.3, height: 550)
+                .position(x: 215, y: 490)
             
             VStack {
                 Text("Slide\nNumber\nGame")
@@ -61,11 +66,22 @@ struct ContentView: View {
                             ForEach(viewModel.puzzle) { tile in
                                     Tileview(tile)
                                     .aspectRatio(1.0, contentMode: .fit)
-                                        .onTapGesture { // tap on screen
-                                            viewModel.shift(tile)
-                                            count += 1
-                                            checkGameWin()
-                                        }
+                                    .gesture(
+                                        DragGesture()
+                                            .onEnded { value in
+                                                // Respond to drag gesture completion
+                                                withAnimation(.easeInOut(duration: 0.25)) {
+                                                    viewModel.shift(tile)
+                                                    count += 1
+                                                    checkGameWin()
+                                                }
+                                            }
+                                    )
+//                                    .onTapGesture { // tap on screen
+//                                        viewModel.shift(tile)
+//                                        count += 1
+//                                        checkGameWin()
+//                                    }
                                 }
                         }
                         .foregroundColor(Color(hex: 0x06327D))
@@ -108,25 +124,25 @@ struct ContentView: View {
                 } // count block
                 
                 Button {
-                    viewModel.startNewGame()
-                    count = 0
+                    withAnimation {
+                        viewModel.startNewGame()
+                        count = 0
+                    }
                 } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 15)
+                            .animation(.easeInOut) // Apply animation to the background color and shadow color
                             .foregroundColor(Color(hex: 0x7FC8F8)) // Deep Blue
                             .frame(width: 266.7, height: 71.1)
-                            .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
+                            .shadow(color: Color(hex: 0x5AA9E6), radius: 0, x: 5, y: 5)
                         
                         Text("NEW GAME")
                             .font(Font.custom("Dosis-SemiBold", size: 27))
                             .fontWeight(.bold)
                             .foregroundColor(Color(hex: 0xFFFFFF))
-                            .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
-                        
+                            .shadow(color: Color(hex: 0x5AA9E6), radius: 0, x:2, y:2)
                     }
                 }
-
-                .font(Font.custom("Dosis-SemiBold", size: 20))
                 .padding()
             }
         }
