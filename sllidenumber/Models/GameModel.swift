@@ -10,7 +10,7 @@ import Foundation
 struct GameModel<TileContentType: Comparable> {
     private(set) var puzzle: Array<Tile>
     let standard: Array<Tile>
-    let spaceTile: Tile
+    var spaceTile: Tile
     var isWin = false
     
     
@@ -22,6 +22,7 @@ struct GameModel<TileContentType: Comparable> {
         }
         
         spaceTile = tileArray[15]
+        tileArray[15].isSpace = true
         
         standard = tileArray
         puzzle = tileArray
@@ -122,6 +123,7 @@ struct GameModel<TileContentType: Comparable> {
     struct Tile: Identifiable {
         let id = UUID()
         var number: TileContentType
+        var isSpace = false
     }
     
 }

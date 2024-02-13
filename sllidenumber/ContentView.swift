@@ -166,12 +166,14 @@ struct Tileview: View {
     
     var body: some View {
         ZStack {
-            let base = RoundedRectangle(cornerRadius: 12)
-            
-            Group {
-                base.foregroundColor(.white)
-                Text(tile.number)
-                    .font(Font.custom("Dosis-SemiBold", size: 20))
+            if !tile.isSpace {
+                let base = RoundedRectangle(cornerRadius: 12)
+                
+                Group {
+                    base.foregroundColor(.white)
+                    Text(tile.number)
+                        .font(Font.custom("Dosis-SemiBold", size: 20))
+                }
             }
         }
     }
