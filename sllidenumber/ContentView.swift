@@ -6,7 +6,8 @@
 //
 
 // Problem
-// * not display item that swapped
+// * not fix bug solvable yet
+
 import SwiftUI
 
 extension Color {
@@ -26,9 +27,6 @@ struct ContentView: View {
     @State private var isGameFinished = false
     @State private var count = 0
     
-//    @State private var buttonColor: Color = Color(hex: 0x7FC8F8)
-//    @State private var shadowButtonColor: Color = Color(hex: 0x5AA9E6)
-
     var body: some View {
         ZStack {
             Color(hex: 0x2B70E4)
@@ -59,7 +57,6 @@ struct ContentView: View {
                         .foregroundColor(Color(hex: 0x06327D))
                         // Deep Blue
                         .frame(width: 350, height: 370)
-                        // .position(x: 215, y: 295)
                     
                     // Tile game
                     VStack { // V - Colummn, H - Row
@@ -78,11 +75,6 @@ struct ContentView: View {
                                                 }
                                             }
                                     )
-//                                    .onTapGesture { // tap on screen
-//                                        viewModel.shift(tile)
-//                                        count += 1
-//                                        checkGameWin()
-//                                    }
                                 }
                         }
                         .foregroundColor(Color(hex: 0x06327D))
@@ -111,7 +103,6 @@ struct ContentView: View {
                 
                 Text("Count")
                     .font(Font.custom("Dosis-SemiBold", size: 25))
-                    // .position(x: 215, y: 290)
                 
                 ZStack {
                     RoundedRectangle(cornerRadius: 15)
@@ -121,7 +112,6 @@ struct ContentView: View {
                     Text("\(count)")
                         .font(Font.custom("Dosis-SemiBold", size: 30))
                         .foregroundColor(Color(hex: 0xFFFFFF))
-                    // .position(x: 215, y: 180)
                 } // count block
                 
                 Button {

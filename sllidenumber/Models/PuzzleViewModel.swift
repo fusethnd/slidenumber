@@ -7,7 +7,6 @@
 
 import Foundation
 
-// class NumberViewModel {
 class PuzzleViewModel : ObservableObject {
     
     static let numbers = ["1", "2", "3", "4",
