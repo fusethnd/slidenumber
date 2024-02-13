@@ -16,6 +16,8 @@
 		A9DC5E1D2B6EB8C8008B2E10 /* sllidenumberUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC5E1C2B6EB8C8008B2E10 /* sllidenumberUITestsLaunchTests.swift */; };
 		A9DC5E2A2B6ECE8B008B2E10 /* PuzzleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC5E292B6ECE8B008B2E10 /* PuzzleViewModel.swift */; };
 		A9DC5ECE2B74C1D5008B2E10 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC5ECD2B74C1D5008B2E10 /* GameModel.swift */; };
+		A9DC5F3B2B79FE10008B2E10 /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9DC5F392B79FE10008B2E10 /* Dosis-SemiBold.ttf */; };
+		A9DC5F3C2B79FE10008B2E10 /* Barrio-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9DC5F3A2B79FE10008B2E10 /* Barrio-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,9 @@
 		A9DC5E1C2B6EB8C8008B2E10 /* sllidenumberUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sllidenumberUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A9DC5E292B6ECE8B008B2E10 /* PuzzleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewModel.swift; sourceTree = "<group>"; };
 		A9DC5ECD2B74C1D5008B2E10 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		A9DC5F392B79FE10008B2E10 /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
+		A9DC5F3A2B79FE10008B2E10 /* Barrio-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barrio-Regular.ttf"; sourceTree = "<group>"; };
+		A9DC5F3D2B79FEAC008B2E10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +104,10 @@
 		A9DC5DFD2B6EB8C7008B2E10 /* sllidenumber */ = {
 			isa = PBXGroup;
 			children = (
+				A9DC5F3D2B79FEAC008B2E10 /* Info.plist */,
 				A9DC5ECC2B74BE5F008B2E10 /* Models */,
+				A9DC5F3A2B79FE10008B2E10 /* Barrio-Regular.ttf */,
+				A9DC5F392B79FE10008B2E10 /* Dosis-SemiBold.ttf */,
 				A9DC5DFE2B6EB8C7008B2E10 /* sllidenumberApp.swift */,
 				A9DC5E002B6EB8C7008B2E10 /* ContentView.swift */,
 				A9DC5E022B6EB8C8008B2E10 /* Assets.xcassets */,
@@ -247,8 +255,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9DC5F3C2B79FE10008B2E10 /* Barrio-Regular.ttf in Resources */,
 				A9DC5E072B6EB8C8008B2E10 /* Preview Assets.xcassets in Resources */,
 				A9DC5E032B6EB8C8008B2E10 /* Assets.xcassets in Resources */,
+				A9DC5F3B2B79FE10008B2E10 /* Dosis-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +450,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = sllidenumber/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -478,6 +489,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = sllidenumber/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
