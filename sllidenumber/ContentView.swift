@@ -51,6 +51,7 @@ struct ContentView: View {
             VStack {
                 Text("Slide\nNumber\nGame")
                     .font(Font.custom("Barrio-Regular", size: 40))
+                    .foregroundColor(Color(hex: 0x000000))
                     .multilineTextAlignment(.center)
                 
                 ZStack { // Game Blue Block
@@ -70,7 +71,7 @@ struct ContentView: View {
                                         DragGesture()
                                             .onEnded { value in
                                                 // Respond to drag gesture completion
-                                                withAnimation(.easeInOut(duration: 0.25)) {
+                                                withAnimation(.easeInOut(duration: 0.10)) {
                                                     viewModel.shift(tile)
                                                     count += 1
                                                     checkGameWin()
