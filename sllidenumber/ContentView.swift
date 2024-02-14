@@ -5,9 +5,6 @@
 //  Created by Thanadon Boontawee on 4/2/2567 BE.
 //
 
-// Problem
-// * not fix bug solvable yet
-
 import SwiftUI
 
 extension Color {

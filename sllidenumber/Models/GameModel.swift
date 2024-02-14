@@ -90,16 +90,20 @@ struct GameModel<TileContentType: Comparable> {
     }
     
     mutating func shuffle() {
-        puzzle.shuffle()
+        repeat {
+            puzzle.shuffle()
+            print(isSolvable(puzzle))
+        } while !(isSolvable(puzzle))
     }
     
-    private func isSolvable() -> Bool {
+    private func isSolvable(_ puzzleVal: Array<Tile>) -> Bool {
         // Count the number of inversions in the puzzle array
         var inversionCount = 0
-        for i in 0..<puzzle.count {
+        for i in 0..<puzzleVal.count {
             for j in i+1..<puzzle.count {
-                if puzzle[i].id != spaceTile.id && puzzle[j].id != spaceTile.id &&
-                    puzzle[i].number < puzzle[j].number {
+                if puzzleVal[i].number != spaceTile.number &&
+                    puzzleVal[j].number != spaceTile.number &&
+                    puzzleVal[i].number < puzzleVal[j].number {
                     inversionCount += 1
                 }
             }
@@ -109,12 +113,12 @@ struct GameModel<TileContentType: Comparable> {
         
         if (inversionCount % 2 == 0 && index(of: spaceTile) % 2 == 0) ||
             (inversionCount % 2 == 1 && index(of: spaceTile) % 2 == 1) {
+//        if (inversionCount % 2 == 0) {
             return true
         } else {
             return false
         }
     }
-
     
     mutating func startNewGame() {
         shuffle()
